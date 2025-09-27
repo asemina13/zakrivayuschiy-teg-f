@@ -13,4 +13,439 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--Inter), sans-serif;
+  font-variation-settings: var(--InterWeightMain);
+  background-image: var(--background-image);
+  background-size: cover;
+}
+
+.header {
+  margin: 100px auto;
+  font-family: var(--PressStart2P);
+  width: clamp(375px, 0.305vw + 260.56px, 700px);
+}
+
+.content_width,
+.about_sprints {
+  width: var(--header-w);
+  background-color: var(--background-color);
+}
+
+.logo_group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: clamp(122px, 0.7512vw + 119.183px, 130px);
+}
+
+.logo {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.about_sprints {
+  display: grid;
+  justify-items: stretch;
+  background-color: #fff;
+  margin: 50px auto;
+  font-size: 18px;
+  position: relative;
+  border: #000 2px solid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "header header"
+    "image image"
+    "info info"
+    "memory memory"
+    "like-icon like-button";
+  position: relative;
+}
+
+.about_sprints__header {
+  font-size: 18px;
+  font-weight: var(--InterWeightMain);
+  margin: 4px 10px;
+  grid-area: header;
+}
+
+.image-text {
+  position: relative;
+  border-top: solid 2px #000;
+  border-bottom: #000 solid 2px;
+  grid-area: image;
+}
+
+.image-text::after {
+  content: "</HTML>";
+  font-family: var(--PressStart2P);
+  position: absolute;
+  color: rgba(0, 0, 0, 0.5);
+  mix-blend-mode: hard-light;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 400;
+  text-shadow: -1px 0 rgb(255, 255, 255, 0.5), 0 1px rgb(255, 255, 255, 0.5),
+    1px 0 rgb(255, 255, 255, 0.5), 0 -1px rgb(255, 255, 255, 0.5);
+}
+
+@supports (
+  (text-stroke: 1px rgb(255, 255, 255, 0.5)) or
+    (-webkit-text-stroke: 1px rgb(255, 255, 255, 0.5))
+) {
+  .image-text::after {
+    -webkit-text-stroke: 1px rgb(255, 255, 255, 0.5);
+    text-stroke: 1px rgb(255, 255, 255, 0.5);
+    text-shadow: none;
+  }
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.about_sprints__info {
+  margin: 25px;
+  grid-area: info;
+}
+
+.about_sprints__info_memory {
+  margin: 0 25px 25px;
+  grid-area: memory;
+}
+
+.card__like-icon {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 167px;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  grid-row: 5;
+  grid-column: 2;
+}
+
+.card__like-icon:focus {
+  outline: none;
+}
+
+.like-icon {
+  transition: outline 0.3s ease;
+  outline: 2px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+}
+
+.like-icon:focus-visible {
+  outline: 2px solid #000;
+}
+
+.card__like-button {
+  display: flex;
+  justify-self: flex-end;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  border: none;
+  background-color: transparent;
+  width: 130px;
+  height: 38px;
+  padding: 0;
+  border: solid 2px #000;
+  position: relative;
+  overflow: hidden;
+  grid-area: like-button;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__like-button::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.card__like-button:hover::before {
+  transform: translateX(0);
+  background-color: #000;
+}
+
+.button__text {
+  font-family: var(--PressStart2P);
+  font-size: 14px;
+  position: relative;
+  z-index: 3;
+}
+
+.card__like-button:hover .button__text {
+  color: white;
+}
+
+.floppy {
+  width: 28px;
+  height: 28px;
+}
+
+.card__icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: solid 2px #000;
+  background-color: #fff;
+  margin: 0 auto 100px;
+  width: 306px;
+  height: 84px;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.card__icon-button::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.card__icon-button:hover::before {
+  transform: translateX(0);
+  background-color: #000;
+}
+
+.floppy,
+.button__text__footer {
+  position: relative;
+  z-index: 3;
+}
+
+.card__icon-button:hover .floppy,
+.card__icon-button:hover .button__text__footer {
+  color: white;
+}
+
+@media (width > 700px) {
+  .floppy {
+    width: 21px;
+    height: 21px;
+  }
+
+  .card__icon-button {
+    flex-direction: row;
+    width: 335px;
+    height: 55px;
+  }
+}
+
+.button__text__footer {
+  font-family: var(--PressStart2P);
+  font-size: 14px;
+}
+
+.card__icon-button:focus,
+.card__like-button:focus,
+.floppy-text:focus {
+  outline-color: transparent;
+  box-shadow: 2px 2px 0 #000;
+  transition: 0.3s ease;
+}
+
+.image-blur {
+  filter: blur(0.3rem);
+}
+
+.image-sepia {
+  filter: sepia(100%);
+}
+
+.image-saturate {
+  filter: saturate(500%);
+}
+
+.image-dull {
+  filter: saturate(20%);
+}
+
+.image-invert {
+  filter: invert(0.8);
+}
+
+.image-dull-bright {
+  filter: saturate(200%) sepia(60%);
+}
+
+.image-invert-unknown {
+  filter: hue-rotate(90deg) contrast(50%) blur(0.09rem);
+}
+
+dialog {
+  border-width: 1px;
+  block-size: 191px;
+  padding: 0;
+  margin: auto;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.3);
+  backdrop-filter: blur(7px);
+}
+
+.dialog__class {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin: auto;
+  padding: 30px 40px;
+  align-items: center;
+  max-inline-size: 353px;
+}
+
+.floppy-text-continue {
+  font-family: var(--PressStart2P);
+  font-size: 14px;
+  grid-row: 1;
+  grid-column: 2;
+  align-self: center;
+  max-width: 234px;
+  height: 62px;
+  text-transform: uppercase;
+  line-height: 150%;
+}
+
+.floppy-text {
+  font-family: var(--PressStart2P);
+  font-size: 14px;
+  background-color: #fff;
+  height: 38px;
+  width: 100%;
+  max-width: 293px;
+  padding: 0;
+  grid-row: 2;
+  grid-column: 1 / span 2;
+  margin-top: 30px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.floppy-save {
+  width: 39px;
+  height: 39px;
+  grid-row: 1;
+  grid-column: 1;
+  margin-right: 20px;
+}
+
+.floppy-text::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.floppy-text:hover::before {
+  transform: translateX(0);
+  background-color: #000;
+}
+
+.floppy-text:hover .footer-ok {
+  color: white;
+}
+
+.footer-ok {
+  position: relative;
+  z-index: 3;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .core {
+  transition: fill 0.3s linear;
+  fill: var(--contour);
+}
+
+.like-icon:hover .main-body {
+  transition: fill 0.3s linear 0.05s;
+  fill: var(--contour);
+}
+
+.like-icon:active .core {
+  transition: fill 0.3s linear;
+  fill: var(--animation-fill-color);
+}
+
+.like-icon:active .main-body {
+  transition: fill 0.3s linear 0.05s;
+  fill: var(--animation-fill-color);
+}
+
+.like-icon:active .contour {
+  transition: fill 0.3s linear 0.06s;
+  fill: var(--contour);
+}
+
+.like-icon.is-liked .heart {
+  animation: scale-heart 0.1s ease-in 0.3s forwards 1;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.06s 1;
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .core {
+  transition: fill 0.3s linear;
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .main-body {
+  transition: fill 0.3s linear 0.05s;
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .contour {
+  transition: fill 0.3s linear 0.06s;
+  fill: var(--animation-fill-color);
 }
