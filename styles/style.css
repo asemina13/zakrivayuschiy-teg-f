@@ -13,22 +13,24 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--Inter), sans-serif;
-  font-variation-settings: var(--InterWeightMain);
-  background-image: var(--background-image);
+  font-family: var(--mainFont), sans-serif;
+  font-weight: var(--mainFontWeightHeading);
+  background-image: var(--backgroundImage);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .header {
   margin: 100px auto;
-  font-family: var(--PressStart2P);
+  font-family: var(--accentFont), fantasy;
   width: clamp(375px, 0.305vw + 260.56px, 700px);
 }
 
 .content_width,
 .about_sprints {
-  width: var(--header-w);
-  background-color: var(--background-color);
+  width: var(--headerWeight);
+  background-color: var(--backgroundColor);
 }
 
 .logo_group {
@@ -69,7 +71,7 @@
 
 .about_sprints__header {
   font-size: 18px;
-  font-weight: var(--InterWeightMain);
+  font-variation-settings: "wght" 715;
   margin: 4px 10px;
   grid-area: header;
 }
@@ -81,26 +83,29 @@
   grid-area: image;
 }
 
-.image-text::after {
-  content: "</HTML>";
-  font-family: var(--PressStart2P);
+.label {
   position: absolute;
-  color: rgba(0, 0, 0, 0.5);
-  mix-blend-mode: hard-light;
   top: 25px;
   right: 25px;
-  z-index: 1;
+  color: rgba(0, 0, 0, 0.5);
+  mix-blend-mode: hard-light;
   font-size: 14px;
   font-weight: 400;
+  font-family: var(--accentFont), fantasy;
   text-shadow: -1px 0 rgb(255, 255, 255, 0.5), 0 1px rgb(255, 255, 255, 0.5),
     1px 0 rgb(255, 255, 255, 0.5), 0 -1px rgb(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.label::after {
+  content: "";
 }
 
 @supports (
   (text-stroke: 1px rgb(255, 255, 255, 0.5)) or
     (-webkit-text-stroke: 1px rgb(255, 255, 255, 0.5))
 ) {
-  .image-text::after {
+  .label::after {
     -webkit-text-stroke: 1px rgb(255, 255, 255, 0.5);
     text-stroke: 1px rgb(255, 255, 255, 0.5);
     text-shadow: none;
@@ -110,19 +115,23 @@
 .image {
   width: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1 / 1;
 }
 
 .about_sprints__info {
   margin: 25px;
   grid-area: info;
+  line-height: 21px;
 }
 
-.about_sprints__info_memory {
+.about_sprints p:nth-of-type(n + 2) {
   margin: 0 25px 25px;
   grid-area: memory;
 }
 
-.card__like-icon {
+.card__icon-button {
   padding: 0;
   border: none;
   background-color: transparent;
@@ -135,8 +144,12 @@
   grid-column: 2;
 }
 
-.card__like-icon:focus {
+.card__icon-button:focus {
   outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid #000;
 }
 
 .like-icon {
@@ -145,31 +158,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform-origin: center;
 }
 
-.like-icon:focus-visible {
-  outline: 2px solid #000;
-}
-
-.card__like-button {
-  display: flex;
-  justify-self: flex-end;
-  margin-right: 25px;
-  margin-bottom: 25px;
-  background-color: transparent;
-  width: 130px;
-  height: 38px;
-  padding: 0;
-  border: solid 2px #000;
-  position: relative;
-  overflow: hidden;
-  grid-area: like-button;
+.button__same-style {
   justify-content: center;
   align-items: center;
+  padding: 0;
+  position: relative;
+  display: flex;
 }
 
-.card__like-button::before {
+.button__same-style::before {
   position: absolute;
   content: "";
   width: 100%;
@@ -180,13 +179,25 @@
   z-index: 1;
 }
 
-.card__like-button:hover::before {
+.card__like-button {
+  justify-self: flex-end;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  background-color: transparent;
+  width: 130px;
+  height: 38px;
+  border: solid 2px #000;
+  overflow: hidden;
+  grid-area: like-button;
+}
+
+.button__same-style:hover::before {
   transform: translateX(0);
   background-color: #000;
 }
 
 .button__text {
-  font-family: var(--PressStart2P);
+  font-family: var(--accentFont), fantasy;
   font-size: 14px;
   position: relative;
   z-index: 3;
@@ -194,6 +205,7 @@
 
 .card__like-button:hover .button__text {
   color: white;
+  mix-blend-mode: difference;
 }
 
 .floppy {
@@ -201,37 +213,16 @@
   height: 28px;
 }
 
-.card__icon-button {
-  display: flex;
+.card__footer-button {
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
   border: solid 2px #000;
   background-color: #fff;
   margin: 0 auto 100px;
   width: 306px;
   height: 84px;
-  padding: 0;
-  position: relative;
   z-index: 2;
   overflow: hidden;
-}
-
-.card__icon-button::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-  z-index: 1;
-}
-
-.card__icon-button:hover::before {
-  transform: translateX(0);
-  background-color: #000;
 }
 
 .floppy,
@@ -240,8 +231,8 @@
   z-index: 3;
 }
 
-.card__icon-button:hover .floppy,
-.card__icon-button:hover .button__text__footer {
+.card__footer-button:hover .floppy,
+.card__footer-button:hover .button__text__footer {
   color: white;
 }
 
@@ -251,7 +242,7 @@
     height: 21px;
   }
 
-  .card__icon-button {
+  .card__footer-button {
     flex-direction: row;
     width: 335px;
     height: 55px;
@@ -259,11 +250,11 @@
 }
 
 .button__text__footer {
-  font-family: var(--PressStart2P);
+  font-family: var(--accentFont), fantasy;
   font-size: 14px;
 }
 
-.card__icon-button:focus,
+.card__footer-button:focus,
 .card__like-button:focus,
 .floppy-text:focus {
   outline-color: transparent;
@@ -299,55 +290,48 @@
   filter: hue-rotate(90deg) contrast(50%) blur(0.09rem);
 }
 
-dialog {
+dialog[open] {
   border-width: 1px;
   block-size: 191px;
   padding: 0;
   margin: auto;
+  overflow-y: hidden;
 }
 
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
-.dialog__class {
+.dialog {
   display: grid;
   grid-template-columns: auto 1fr;
-  margin: auto;
   padding: 30px 40px;
   align-items: center;
-  max-inline-size: 353px;
 }
 
 .floppy-text-continue {
-  font-family: var(--PressStart2P);
+  font-family: var(--accentFont), fantasy;
   font-size: 14px;
   grid-row: 1;
   grid-column: 2;
   align-self: center;
   max-width: 234px;
-  height: 62px;
   text-transform: uppercase;
   line-height: 150%;
 }
 
 .floppy-text {
-  font-family: var(--PressStart2P);
+  font-family: var(--accentFont), fantasy;
   font-size: 14px;
   background-color: #fff;
   height: 38px;
   width: 100%;
   max-width: 293px;
-  padding: 0;
   grid-row: 2;
   grid-column: 1 / span 2;
   margin-top: 30px;
   display: flex;
-  position: relative;
   overflow: hidden;
-  align-items: center;
-  justify-content: center;
 }
 
 .floppy-save {
@@ -358,22 +342,6 @@ dialog::backdrop {
   margin-right: 20px;
 }
 
-.floppy-text::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-  z-index: 1;
-}
-
-.floppy-text:hover::before {
-  transform: translateX(0);
-  background-color: #000;
-}
-
 .floppy-text:hover .footer-ok {
   color: white;
 }
@@ -381,6 +349,7 @@ dialog::backdrop {
 .footer-ok {
   position: relative;
   z-index: 3;
+  text-transform: uppercase;
 }
 
 .sparks {
@@ -393,10 +362,12 @@ dialog::backdrop {
 
 .core {
   transition: fill 0.3s linear 0.03s;
+  fill: transparent;
 }
 
 .main-body {
   transition: fill 0.3s linear;
+  fill: transparent;
 }
 
 .like-icon:hover .core {
@@ -411,12 +382,12 @@ dialog::backdrop {
 
 .like-icon:active .core {
   transition: fill 0.3s linear;
-  fill: var(--animation-fill-color);
+  fill: var(--animationFillColor);
 }
 
 .like-icon:active .main-body {
   transition: fill 0.3s linear 0.05s;
-  fill: var(--animation-fill-color);
+  fill: var(--animationFillColor);
 }
 
 .like-icon:active .contour {
@@ -426,24 +397,29 @@ dialog::backdrop {
 
 .like-icon.is-liked .heart {
   animation: scale-heart 0.1s ease-in 0.3s forwards 1;
+  transform-origin: center;
 }
 
 .like-icon.is-liked .sparks {
   animation: sparks 0.3s ease-in 0.06s 1;
-  fill: var(--animation-fill-color);
+  fill: var(--animationFillColor);
 }
 
 .like-icon.is-liked .core {
   transition: fill 0.3s linear;
-  fill: var(--animation-fill-color);
+  fill: var(--animationFillColor);
 }
 
 .like-icon.is-liked .main-body {
   transition: fill 0.3s linear 0.05s;
-  fill: var(--animation-fill-color);
+  fill: var(--animationFillColor);
 }
 
 .like-icon.is-liked .contour {
   transition: fill 0.3s linear 0.06s;
-  fill: var(--animation-fill-color);
+  fill: var(--animationFillColor);
+}
+
+button {
+  cursor: pointer;
 }
