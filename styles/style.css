@@ -225,6 +225,8 @@ dialog::backdrop {
   height: 28px;
   position: relative;
   z-index: 3;
+  color: white;
+  mix-blend-mode: difference;
 }
 
 .floppy-save {
@@ -398,17 +400,10 @@ dialog::backdrop {
   font-size: 14px;
   position: relative;
   z-index: 3;
+  color: white;
+  mix-blend-mode: difference;
 }
 
 .floppy-text .button__text {
-  color: white;
-  mix-blend-mode: difference;
   text-transform: uppercase;
-}
-
-.card__like-button .button__text,
-.card__footer-button .floppy,
-.card__footer-button .button__text {
-  color: white;
-  mix-blend-mode: difference;
 }
