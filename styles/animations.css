@@ -10,11 +10,14 @@
 
 */
 @keyframes scale-heart {
-  from {
+  0% {
     scale: 1;
   }
-  to {
+  50% {
     scale: 1.25;
+  }
+  100% {
+    scale: 1;
   }
 }
 

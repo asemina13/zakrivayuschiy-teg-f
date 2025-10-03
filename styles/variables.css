@@ -2,7 +2,6 @@
 :root {
   --mainFont: "Inter-Variable";
   --accentFont: "PressStart2P";
-  --mainFontWeightHeading: 410;
   --backgroundImage: repeating-linear-gradient(
       to right,
       #d3d3d3 0,

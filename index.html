@@ -74,7 +74,7 @@
             />
           </svg>
         </button>
-        <button class="card__like-button button__same-style" type="button">
+        <button class="card__like-button button" type="button">
           <span class="button__text">Like</span>
         </button>
       </article>
@@ -96,7 +96,7 @@
           будет слишком сложно? что, если я не справлюсь?
         </p>
         <p class="about_sprints__info">
-          Место для ваших воспоминаний о начале обучения.
+          Место для ваших воспоминаний о начале первого спринта.
         </p>
         <button class="card__icon-button" type="button">
           <svg
@@ -131,7 +131,7 @@
             />
           </svg>
         </button>
-        <button class="card__like-button button__same-style" type="button">
+        <button class="card__like-button button" type="button">
           <span class="button__text">Like</span>
         </button>
       </article>
@@ -151,7 +151,7 @@
           наоборот, могли вдохновиться успехами и поверить в себя.
         </p>
         <p class="about_sprints__info">
-          Место для ваших воспоминаний о начале обучения.
+          Место для ваших воспоминаний об окончании первого спринта.
         </p>
         <button class="card__icon-button" type="button">
           <svg
@@ -186,7 +186,7 @@
             />
           </svg>
         </button>
-        <button class="card__like-button button__same-style" type="button">
+        <button class="card__like-button button" type="button">
           <span class="button__text">Like</span>
         </button>
       </article>
@@ -208,7 +208,7 @@
           старались просто сделать.
         </p>
         <p class="about_sprints__info">
-          Место для ваших воспоминаний о начале обучения.
+          Место для ваших воспоминаний о начале второго спринта.
         </p>
         <button class="card__icon-button" type="button">
           <svg
@@ -243,7 +243,7 @@
             />
           </svg>
         </button>
-        <button class="card__like-button button__same-style" type="button">
+        <button class="card__like-button button" type="button">
           <span class="button__text">Like</span>
         </button>
       </article>
@@ -265,7 +265,7 @@
           что-то новое легче, когда рядом есть единомышленники, не правда ли?
         </p>
         <p class="about_sprints__info">
-          Место для ваших воспоминаний о начале обучения.
+          Место для ваших воспоминаний об окончании второго спринта.
         </p>
         <button class="card__icon-button" type="button">
           <svg
@@ -300,7 +300,7 @@
             />
           </svg>
         </button>
-        <button class="card__like-button button__same-style" type="button">
+        <button class="card__like-button button" type="button">
           <span class="button__text">Like</span>
         </button>
       </article>
@@ -320,7 +320,7 @@
           посмотреть на задачу под другим углом.
         </p>
         <p class="about_sprints__info">
-          Место для ваших воспоминаний о начале обучения.
+          Место для ваших воспоминаний о начале третьего спринта.
         </p>
         <button class="card__icon-button" type="button">
           <svg
@@ -355,7 +355,7 @@
             />
           </svg>
         </button>
-        <button class="card__like-button button__same-style" type="button">
+        <button class="card__like-button button" type="button">
           <span class="button__text">Like</span>
         </button>
       </article>
@@ -376,7 +376,7 @@
           моменты очень нужна концентрация. Вспомните, откуда вы её черпали.
         </p>
         <p class="about_sprints__info">
-          Место для ваших воспоминаний о начале обучения.
+          Место для ваших воспоминаний об окончании третьего спринта.
         </p>
         <button class="card__icon-button" type="button">
           <svg
@@ -411,7 +411,7 @@
             />
           </svg>
         </button>
-        <button class="card__like-button button__same-style" type="button">
+        <button class="card__like-button button" type="button">
           <span class="button__text">Like</span>
         </button>
       </article>
@@ -434,7 +434,8 @@
           есть результат.
         </p>
         <p class="about_sprints__info">
-          Место для ваших воспоминаний о начале обучения.
+          Место, чтобы остановиться, подумать и написать, что вы чувствуете в
+          этой точке пути.
         </p>
         <button class="card__icon-button" type="button">
           <svg
@@ -469,34 +470,34 @@
             />
           </svg>
         </button>
-        <button class="card__like-button button__same-style" type="button">
+        <button class="card__like-button button" type="button">
           <span class="button__text">Like</span>
         </button>
       </article>
       <button
+        class="card__footer-button button"
         type="button"
         onclick="document.getElementById('dialog-id').showModal()"
         aria-controls="dialog-id"
-        class="card__footer-button button__same-style"
       >
         <svg class="floppy" viewBox="0 0 28 28">
           <use href="./svg/floppy.svg#floppy" />
         </svg>
-        <span class="button__text__footer">Сохранить на память</span>
+        <span class="button__text">Сохранить на память</span>
       </button>
       <dialog id="dialog-id">
         <div class="dialog">
-          <svg class="floppy floppy-save" viewBox="0 0 28 28">
+          <svg class="floppy-save" viewBox="0 0 28 28">
             <use href="./svg/floppy.svg#floppy" />
           </svg>
           <p class="floppy-text-continue">Вставьте дискету, чтобы продолжить</p>
           <button
-            class="button__text floppy-text button__same-style"
+            class="floppy-text button"
             type="button"
             onclick="document.getElementById('dialog-id').close()"
             aria-controls="dialog-id"
           >
-            <span class="footer-ok">ok</span>
+            <span class="button__text">ok</span>
           </button>
         </div>
       </dialog>
